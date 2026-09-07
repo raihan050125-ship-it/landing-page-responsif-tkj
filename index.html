@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TKJ | Teknik Komputer dan Jaringan</title>
+    <meta name="description"
+          content="Website Jurusan Teknik Komputer dan Jaringan SMKN 2 Tembilahan">
+
+    <title>TKJ | SMKN 2 Tembilahan</title>
 
     <style>
-        /* =========================
+        /* ==============================
            RESET
-        ========================== */
+        ============================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -17,11 +21,42 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+            --green-dark: #033b28;
+            --green: #075c3b;
+            --green-light: #0c7a4d;
+            --yellow: #f5c400;
+            --yellow-light: #fff4b8;
+
+            --white: #ffffff;
+            --background: #f7f8f4;
+            --text: #17211b;
+            --muted: #64706a;
+
+            --border: #e2e8e3;
+
+            --shadow:
+                0 18px 45px rgba(3, 59, 40, 0.12);
+
+            --radius: 22px;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #020617;
-            color: #ffffff;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--background);
+            color: var(--text);
+
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         a {
@@ -29,445 +64,1009 @@
             color: inherit;
         }
 
+        button {
+            font-family: inherit;
+        }
+
         .container {
-            width: 90%;
-            max-width: 1150px;
+            width: min(1120px, 92%);
             margin: auto;
         }
 
 
-        /* =========================
+        /* ==============================
            NAVBAR
-        ========================== */
+        ============================== */
+
         header {
             position: fixed;
             top: 0;
             left: 0;
+
             width: 100%;
-            z-index: 999;
 
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(12px);
+            z-index: 1000;
 
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(3, 59, 40, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.1);
         }
 
         nav {
-            height: 70px;
+            min-height: 72px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #38bdf8;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: white;
         }
 
-        .logo span {
-            color: white;
+        .brand img {
+            width: 45px;
+            height: 45px;
+
+            object-fit: contain;
+        }
+
+        .brand-text strong {
+            display: block;
+
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            display: block;
+
+            font-size: 11px;
+
+            color: #d9eee4;
         }
 
         .nav-menu {
             display: flex;
+
             align-items: center;
-            gap: 30px;
+
+            gap: 25px;
+
             list-style: none;
         }
 
         .nav-menu a {
-            color: #cbd5e1;
-            font-size: 15px;
-            transition: 0.3s;
+            color: #edf7f1;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.25s;
         }
 
         .nav-menu a:hover {
-            color: #38bdf8;
+            color: var(--yellow);
         }
 
         .menu-btn {
             display: none;
+
+            border: none;
+            background: transparent;
+
+            color: white;
+
             font-size: 28px;
+
             cursor: pointer;
         }
 
 
-        /* =========================
+        /* ==============================
            HERO
-        ========================== */
+        ============================== */
+
         .hero {
             min-height: 100vh;
 
+            position: relative;
+
             display: flex;
             align-items: center;
-            justify-content: center;
 
-            text-align: center;
+            padding:
+                120px 0
+                80px;
 
-            padding: 100px 20px 60px;
+            color: white;
+
+            overflow: hidden;
 
             background:
-                radial-gradient(
-                    circle at top,
-                    #075985 0%,
-                    #020617 60%
+                var(--green-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3,59,40,0.95),
+                    rgba(3,59,40,0.70),
+                    rgba(3,59,40,0.30)
+                ),
+                url("images/sekolah-aerial.jpg")
+                center / cover no-repeat;
+
+            transform: scale(1.03);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 100px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    var(--background)
                 );
         }
 
         .hero-content {
-            max-width: 850px;
+            position: relative;
 
-            animation: fadeUp 1s ease;
+            z-index: 2;
+
+            max-width: 730px;
+
+            animation:
+                fadeUp 1s ease;
         }
 
-        .hero h1 {
-            font-size: clamp(42px, 8vw, 82px);
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
+        .eyebrow {
+            display: inline-flex;
 
-        .hero h1 span {
-            color: #38bdf8;
-        }
+            align-items: center;
 
-        .hero p {
-            max-width: 700px;
-            margin: auto;
+            gap: 8px;
 
-            color: #cbd5e1;
-            font-size: 18px;
+            padding:
+                7px 13px;
 
-            margin-bottom: 35px;
-        }
+            border-radius: 50px;
 
-        .btn {
-            display: inline-block;
+            background:
+                rgba(245,196,0,0.15);
 
-            padding: 14px 30px;
+            border:
+                1px solid rgba(245,196,0,0.45);
 
-            border-radius: 8px;
+            color: #ffe36a;
 
-            background: #38bdf8;
-            color: #020617;
+            font-size: 12px;
 
             font-weight: bold;
 
-            transition: 0.3s;
-        }
+            letter-spacing: 0.8px;
 
-        .btn:hover {
-            transform: translateY(-4px);
-            background: #7dd3fc;
-            box-shadow: 0 10px 30px rgba(56,189,248,0.25);
-        }
+            text-transform: uppercase;
 
-
-        /* =========================
-           SECTION
-        ========================== */
-        section {
-            padding: 100px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #94a3b8;
-        }
-
-
-        /* =========================
-           VISI
-        ========================== */
-        .visi {
-            background: #0f172a;
-        }
-
-        .visi-card {
-            max-width: 850px;
-            margin: auto;
-
-            padding: 45px;
-
-            text-align: center;
-
-            background: #111827;
-
-            border: 1px solid #1e293b;
-            border-radius: 18px;
-
-            transition: 0.3s;
-        }
-
-        .visi-card:hover {
-            border-color: #38bdf8;
-            transform: translateY(-5px);
-        }
-
-        .visi-icon {
-            font-size: 55px;
             margin-bottom: 20px;
         }
 
-        .visi-card h3 {
-            color: #38bdf8;
-            font-size: 26px;
-            margin-bottom: 15px;
+        .hero h1 {
+            font-size:
+                clamp(43px, 7vw, 76px);
+
+            line-height: 1.03;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
         }
 
-        .visi-card p {
-            color: #cbd5e1;
-            font-size: 17px;
+        .hero h1 span {
+            color: var(--yellow);
         }
 
+        .hero p {
+            max-width: 650px;
 
-        /* =========================
-           MISI
-        ========================== */
-        .misi {
-            background: #020617;
+            color: #e4f0ea;
+
+            font-size:
+                clamp(15px, 2vw, 18px);
+
+            margin-bottom: 30px;
         }
 
-        .misi-grid {
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .misi-card {
-            padding: 30px 22px;
-
-            background: #111827;
-
-            border: 1px solid #1e293b;
-            border-radius: 15px;
-
-            text-align: center;
-
-            transition: 0.3s;
-        }
-
-        .misi-card:hover {
-            transform: translateY(-8px);
-            border-color: #38bdf8;
-        }
-
-        .misi-number {
-            width: 45px;
-            height: 45px;
-
+        .hero-actions {
             display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
-            margin: 0 auto 20px;
+            gap: 8px;
 
-            border-radius: 50%;
+            padding:
+                13px 21px;
 
-            background: #38bdf8;
-            color: #020617;
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--yellow);
+
+            color: var(--green-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(245,196,0,0.25);
+        }
+
+        .btn-outline {
+            color: white;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.35);
+        }
+
+        .btn-outline:hover {
+            background:
+                rgba(255,255,255,0.16);
+        }
+
+
+        /* ==============================
+           SECTION
+        ============================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-head {
+            max-width: 720px;
+
+            margin:
+                0 auto 45px;
+
+            text-align: center;
+        }
+
+        .tag {
+            color: var(--green-light);
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+        }
+
+        .section-head h2 {
+            color: var(--green-dark);
+
+            font-size:
+                clamp(30px, 4vw, 45px);
+
+            line-height: 1.15;
+
+            margin:
+                8px 0 12px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           TENTANG
+        ============================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.05fr 0.95fr;
+
+            gap: 42px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+
+            object-fit: cover;
+        }
+
+        .about-copy h3 {
+            color: var(--green-dark);
+
+            font-size: 28px;
+
+            margin-bottom: 14px;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+
+            margin-bottom: 15px;
+        }
+
+        .check-list {
+            list-style: none;
+
+            display: grid;
+
+            gap: 11px;
+
+            margin-top: 22px;
+        }
+
+        .check-list li {
+            display: flex;
+
+            gap: 10px;
 
             font-weight: bold;
         }
 
-        .misi-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .misi-card p {
-            color: #94a3b8;
-            font-size: 14px;
+        .check-list b {
+            color: var(--green-light);
         }
 
 
-        /* =========================
-           KEAHLIAN
-        ========================== */
-        .skills {
-            background: #0f172a;
+        /* ==============================
+           VISI
+        ============================== */
+
+        .vision-section {
+            background: white;
         }
 
-        .skills-grid {
-            display: grid;
+        .vision-card {
+            position: relative;
 
-            grid-template-columns: repeat(3, 1fr);
+            overflow: hidden;
 
-            gap: 20px;
-        }
+            padding: 42px;
 
-        .skill-card {
-            padding: 30px;
-
-            background: #111827;
-
-            border: 1px solid #1e293b;
-            border-radius: 15px;
+            border-radius: var(--radius);
 
             text-align: center;
 
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #38bdf8;
-        }
-
-        .skill-icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           CTA
-        ========================== */
-        .cta {
-            text-align: center;
+            color: white;
 
             background:
                 linear-gradient(
                     135deg,
-                    #075985,
-                    #0c4a6e
+                    var(--green-dark),
+                    var(--green-light)
                 );
+
+            box-shadow: var(--shadow);
         }
 
-        .cta h2 {
-            font-size: 40px;
-            margin-bottom: 15px;
+        .vision-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            right: -80px;
+            top: -90px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(245,196,0,0.12);
         }
 
-        .cta p {
-            color: #dbeafe;
-            margin-bottom: 30px;
+        .vision-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            left: -70px;
+            bottom: -70px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(245,196,0,0.10);
+        }
+
+        .vision-icon {
+            font-size: 42px;
+        }
+
+        .vision-card h3 {
+            color: #ffe05b;
+
+            font-size: 25px;
+
+            margin:
+                8px 0 12px;
+        }
+
+        .vision-card p {
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #e7f3ed;
         }
 
 
-        /* =========================
-           FOOTER
-        ========================== */
-        footer {
-            padding: 30px 20px;
+        /* ==============================
+           MISI
+        ============================== */
 
-            text-align: center;
+        .mission-grid {
+            display: grid;
 
-            background: #020617;
+            grid-template-columns:
+                repeat(4, 1fr);
 
-            color: #64748b;
+            gap: 18px;
+
+            margin-top: 22px;
+        }
+
+        .mission-card {
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(3,59,40,0.06);
+
+            transition: 0.25s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #9bc9b5;
+        }
+
+        .mission-number {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--yellow);
+
+            color: var(--green-dark);
+
+            font-weight: 900;
+
+            margin-bottom: 16px;
+        }
+
+        .mission-card h3 {
+            color: var(--green-dark);
+
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+        .mission-card p {
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =========================
+        /* ==============================
+           KELAS
+        ============================== */
+
+        .class-section {
+            background: #f1f5f1;
+        }
+
+        .class-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .class-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            transition: 0.25s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .class-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 95px;
+            height: 95px;
+
+            right: -30px;
+            top: -30px;
+
+            border-radius: 50%;
+
+            background:
+                var(--yellow-light);
+        }
+
+        .class-card small {
+            color: var(--green-light);
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.8px;
+        }
+
+        .class-card h3 {
+            color: var(--green-dark);
+
+            font-size: 22px;
+
+            margin:
+                5px 0 12px;
+        }
+
+        .students {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--muted);
+
+            font-weight: bold;
+        }
+
+        .students strong {
+            color: var(--green-dark);
+
+            font-size: 28px;
+        }
+
+        .total-students {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: var(--green-dark);
+
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           KEAHLIAN
+        ============================== */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill {
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 28px;
+
+            transition: 0.25s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .skill-icon {
+            font-size: 34px;
+
+            margin-bottom: 12px;
+        }
+
+        .skill h3 {
+            color: var(--green-dark);
+
+            margin-bottom: 6px;
+        }
+
+        .skill p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           GALERI
+        ============================== */
+
+        .gallery-section {
+            background: white;
+        }
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                1.25fr 0.75fr 0.75fr;
+
+            grid-template-rows:
+                250px 250px;
+
+            gap: 14px;
+        }
+
+        .gallery-item {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background: #ddd;
+        }
+
+        .gallery-item:first-child {
+            grid-row: 1 / 3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding:
+                30px 18px 15px;
+
+            color: white;
+
+            font-weight: bold;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,0.75)
+                );
+        }
+
+
+        /* ==============================
+           KONTAK
+        ============================== */
+
+        .contact {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green-dark),
+                    #0a754b
+                );
+
+            color: white;
+        }
+
+        .contact-box {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size:
+                clamp(30px, 4vw, 45px);
+
+            line-height: 1.15;
+
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #dceee5;
+
+            margin-bottom: 25px;
+        }
+
+        .socials {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .social {
+            padding:
+                13px 20px;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: var(--green-dark);
+
+            font-weight: 900;
+
+            transition: 0.25s;
+        }
+
+        .social:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #02271b;
+
+            color: #a9c5b7;
+
+            padding: 28px 0;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* ==============================
            ANIMATION
-        ========================== */
+        ============================== */
+
         @keyframes fadeUp {
 
             from {
                 opacity: 0;
-                transform: translateY(30px);
+
+                transform:
+                    translateY(25px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
-            }
 
+                transform:
+                    translateY(0);
+            }
         }
 
 
-        /* =========================
+        /* ==============================
            TABLET
-        ========================== */
-        @media (max-width: 900px) {
+        ============================== */
 
-            .misi-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 950px) {
+
+            .mission-grid,
+            .class-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 420px;
+            }
         }
 
 
-        /* =========================
+        /* ==============================
            HP
-        ========================== */
-        @media (max-width: 700px) {
+        ============================== */
 
-            nav {
-                width: 90%;
-            }
+        @media (max-width: 720px) {
 
             .menu-btn {
                 display: block;
+            }
+
+            .brand-text span {
+                display: none;
             }
 
             .nav-menu {
 
                 position: absolute;
 
-                top: 70px;
+                top: 72px;
+
                 left: 0;
+                right: 0;
 
-                width: 100%;
-
-                background: #020617;
+                display: flex;
 
                 flex-direction: column;
 
                 gap: 0;
 
+                background:
+                    rgba(3,59,40,0.98);
+
                 max-height: 0;
+
                 overflow: hidden;
 
-                transition: max-height 0.3s ease;
-
-                border-bottom: 1px solid #1e293b;
+                transition:
+                    max-height 0.3s ease;
             }
 
             .nav-menu.active {
-                max-height: 400px;
+                max-height: 450px;
+
+                border-top:
+                    1px solid
+                    rgba(255,255,255,0.1);
             }
 
             .nav-menu li {
                 width: 100%;
+
                 text-align: center;
             }
 
             .nav-menu a {
                 display: block;
-                padding: 17px;
+
+                padding: 15px;
             }
 
             .hero {
                 min-height: 90vh;
+            }
+
+            .hero-bg {
+                background:
+                    linear-gradient(
+                        rgba(3,59,40,0.91),
+                        rgba(3,59,40,0.78)
+                    ),
+                    url("images/sekolah-aerial.jpg")
+                    center / cover no-repeat;
+            }
+
+            section {
+                padding: 72px 0;
             }
 
             .hero h1 {
@@ -478,40 +1077,64 @@
                 font-size: 15px;
             }
 
-            section {
-                padding: 75px 20px;
-            }
-
-            .section-title h2 {
-                font-size: 30px;
-            }
-
-            .visi-card {
-                padding: 30px 20px;
-            }
-
-            .visi-card h3 {
-                font-size: 22px;
-            }
-
-            .visi-card p {
-                font-size: 15px;
-            }
-
-            .misi-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .mission-grid,
+            .class-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta h2 {
-                font-size: 30px;
+            .vision-card {
+                padding: 30px 22px;
             }
 
+            .about-image img {
+                height: 350px;
+            }
+
+            .gallery {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                grid-template-rows:
+                    210px 210px 210px;
+            }
+
+            .gallery-item:first-child {
+
+                grid-column: 1 / 3;
+
+                grid-row: auto;
+            }
+
+            .socials {
+                flex-direction: column;
+
+                max-width: 300px;
+
+                margin: auto;
+            }
+
+            .social {
+                width: 100%;
+            }
         }
 
+
+        /* ==============================
+           REDUCE MOTION
+        ============================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                scroll-behavior: auto !important;
+
+                animation: none !important;
+
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -519,447 +1142,990 @@
 <body>
 
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+<!-- =================================
+     NAVBAR
+================================= -->
 
-    <header>
+<header>
 
-        <nav class="container">
+    <nav class="container">
 
-            <div class="logo">
-                TKJ<span>.</span>
+        <a href="#home" class="brand">
+
+            <img
+                src="images/logo-smkn2.png"
+                alt="Logo SMKN 2 Tembilahan"
+            >
+
+            <div class="brand-text">
+
+                <strong>
+                    SMKN 2 TEMBILAHAN
+                </strong>
+
+                <span>
+                    Teknik Komputer &amp; Jaringan
+                </span>
+
             </div>
 
-            <ul class="nav-menu" id="navMenu">
-
-                <li>
-                    <a href="#home">Beranda</a>
-                </li>
-
-                <li>
-                    <a href="#visi">Visi</a>
-                </li>
-
-                <li>
-                    <a href="#misi">Misi</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Keahlian</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Kontak</a>
-                </li>
-
-            </ul>
-
-            <div class="menu-btn" id="menuBtn">
-                ☰
-            </div>
-
-        </nav>
-
-    </header>
+        </a>
 
 
+        <ul class="nav-menu" id="navMenu">
 
-    <!-- =========================
-         HERO
-    ========================== -->
+            <li>
+                <a href="#home">
+                    Beranda
+                </a>
+            </li>
 
-    <section class="hero" id="home">
+            <li>
+                <a href="#tentang">
+                    Tentang
+                </a>
+            </li>
+
+            <li>
+                <a href="#visi">
+                    Visi &amp; Misi
+                </a>
+            </li>
+
+            <li>
+                <a href="#kelas">
+                    Kelas
+                </a>
+            </li>
+
+            <li>
+                <a href="#keahlian">
+                    Keahlian
+                </a>
+            </li>
+
+            <li>
+                <a href="#galeri">
+                    Galeri
+                </a>
+            </li>
+
+            <li>
+                <a href="#kontak">
+                    Kontak
+                </a>
+            </li>
+
+        </ul>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Buka menu"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =================================
+     HERO
+================================= -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-bg"></div>
+
+
+    <div class="container">
 
         <div class="hero-content">
 
+            <div class="eyebrow">
+                ⚡ JURUSAN TEKNOLOGI
+                SMKN 2 TEMBILAHAN
+            </div>
+
+
             <h1>
+
                 Teknik Komputer
-                <br>
-                <span>& Jaringan</span>
+
+                <span>
+                    &amp; Jaringan
+                </span>
+
             </h1>
+
 
             <p>
                 Membangun generasi yang kompeten,
                 kreatif, disiplin, dan siap menghadapi
-                perkembangan teknologi masa depan.
+                perkembangan teknologi komputer,
+                jaringan, dan telekomunikasi.
             </p>
 
-            <a href="#visi" class="btn">
-                Kenali TKJ →
-            </a>
 
-        </div>
+            <div class="hero-actions">
 
-    </section>
-
-
-
-    <!-- =========================
-         VISI
-    ========================== -->
-
-    <section class="visi" id="visi">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Visi TKJ</h2>
-
-                <p>
-                    Tujuan dan arah pengembangan jurusan
-                    Teknik Komputer dan Jaringan
-                </p>
-
-            </div>
+                <a
+                    href="#tentang"
+                    class="btn btn-primary"
+                >
+                    Kenali Jurusan TKJ →
+                </a>
 
 
-            <div class="visi-card">
-
-                <div class="visi-icon">
-                    🎯
-                </div>
-
-                <h3>
-                    TKJ Unggul Teknologi
-                </h3>
-
-                <p>
-                    Menjadi jurusan TKJ yang unggul dalam
-                    bidang teknologi komputer dan jaringan
-                    serta mampu menghasilkan siswa yang
-                    kompeten dan berkarakter.
-                </p>
+                <a
+                    href="#kontak"
+                    class="btn btn-outline"
+                >
+                    Hubungi Kami
+                </a>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         MISI
-    ========================== -->
+<!-- =================================
+     TENTANG
+================================= -->
 
-    <section class="misi" id="misi">
+<section id="tentang">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="section-title">
 
-                <h2>Misi TKJ</h2>
+        <div class="section-head">
 
-                <p>
-                    Langkah untuk mewujudkan visi
-                    Teknik Komputer dan Jaringan
-                </p>
-
+            <div class="tag">
+                Tentang Jurusan
             </div>
-
-
-            <div class="misi-grid">
-
-
-                <div class="misi-card">
-
-                    <div class="misi-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Meningkatkan Keterampilan
-                    </h3>
-
-                    <p>
-                        Meningkatkan keterampilan komputer
-                        dan jaringan siswa melalui pembelajaran
-                        teori dan praktik.
-                    </p>
-
-                </div>
-
-
-                <div class="misi-card">
-
-                    <div class="misi-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Kreativitas & Inovasi
-                    </h3>
-
-                    <p>
-                        Mengembangkan kreativitas dan inovasi
-                        siswa dalam bidang teknologi.
-                    </p>
-
-                </div>
-
-
-                <div class="misi-card">
-
-                    <div class="misi-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Disiplin & Tanggung Jawab
-                    </h3>
-
-                    <p>
-                        Membiasakan sikap disiplin,
-                        bertanggung jawab, dan profesional.
-                    </p>
-
-                </div>
-
-
-                <div class="misi-card">
-
-                    <div class="misi-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Mengikuti Perkembangan
-                    </h3>
-
-                    <p>
-                        Mengikuti perkembangan teknologi
-                        terbaru dan menerapkannya secara positif.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         KEAHLIAN
-    ========================== -->
-
-    <section class="skills" id="skills">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Keahlian TKJ</h2>
-
-                <p>
-                    Beberapa bidang yang dipelajari
-                    di jurusan TKJ
-                </p>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        🖥️
-                    </div>
-
-                    <h3>
-                        Hardware
-                    </h3>
-
-                    <p>
-                        Merakit komputer serta mengenal
-                        berbagai komponen perangkat keras.
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        🌐
-                    </div>
-
-                    <h3>
-                        Jaringan
-                    </h3>
-
-                    <p>
-                        Mempelajari LAN, WAN, konfigurasi
-                        jaringan, dan internet.
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        ⚙️
-                    </div>
-
-                    <h3>
-                        Sistem Operasi
-                    </h3>
-
-                    <p>
-                        Instalasi dan konfigurasi sistem
-                        operasi serta software.
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        🔧
-                    </div>
-
-                    <h3>
-                        Troubleshooting
-                    </h3>
-
-                    <p>
-                        Menganalisis dan menyelesaikan
-                        masalah komputer dan jaringan.
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        🔐
-                    </div>
-
-                    <h3>
-                        Keamanan
-                    </h3>
-
-                    <p>
-                        Mempelajari dasar keamanan komputer
-                        dan jaringan.
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <div class="skill-icon">
-                        💡
-                    </div>
-
-                    <h3>
-                        Teknologi
-                    </h3>
-
-                    <p>
-                        Mengembangkan kreativitas dan
-                        kemampuan dalam teknologi informasi.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta" id="contact">
-
-        <div class="container">
 
             <h2>
-                Siap Menguasai Teknologi?
+                Belajar Teknologi
+                dari Dasar hingga Siap Berkarya
             </h2>
 
             <p>
-                Mari belajar, berkarya, dan berkembang
-                bersama Teknik Komputer dan Jaringan.
+                TKJ membekali siswa dengan
+                kemampuan komputer, jaringan,
+                perangkat lunak, internet,
+                dan pemecahan masalah.
             </p>
-
-            <a href="#home" class="btn">
-                Kembali ke Atas ↑
-            </a>
 
         </div>
 
-    </section>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-image">
+
+                <img
+                    src="images/tkj-kegiatan.jpg"
+                    alt="Kegiatan siswa TKJ"
+                    loading="lazy"
+                >
+
+            </div>
 
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+            <div class="about-copy">
 
-    <footer>
+                <h3>
+                    Teknik Komputer &amp; Jaringan
+                </h3>
+
+
+                <p>
+                    Siswa mempelajari perakitan
+                    dan perbaikan komputer,
+                    jaringan komputer,
+                    pengoperasian perangkat lunak,
+                    internet, web dasar,
+                    hingga keamanan jaringan.
+                </p>
+
+
+                <p>
+                    Pembelajaran menggabungkan
+                    teori dan praktik agar siswa
+                    terbiasa bekerja secara teliti,
+                    kreatif, disiplin,
+                    dan bertanggung jawab.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>
+                        <b>✓</b>
+                        Praktik komputer dan jaringan
+                    </li>
+
+                    <li>
+                        <b>✓</b>
+                        Troubleshooting hardware &amp; software
+                    </li>
+
+                    <li>
+                        <b>✓</b>
+                        Konfigurasi jaringan dan internet
+                    </li>
+
+                    <li>
+                        <b>✓</b>
+                        Mengikuti perkembangan teknologi
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     VISI & MISI
+================================= -->
+
+<section
+    class="vision-section"
+    id="visi"
+>
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <div class="tag">
+                Arah Jurusan
+            </div>
+
+            <h2>
+                Visi &amp; Misi TKJ
+            </h2>
+
+            <p>
+                Pedoman untuk membentuk siswa
+                yang kompeten dan berkarakter.
+            </p>
+
+        </div>
+
+
+
+        <!-- VISI -->
+
+        <div class="vision-card">
+
+            <div class="vision-icon">
+                🎯
+            </div>
+
+            <h3>
+                TKJ Unggul Teknologi
+            </h3>
+
+            <p>
+                Menjadi jurusan TKJ yang unggul
+                dalam bidang teknologi komputer
+                dan jaringan serta mampu menghasilkan
+                siswa yang kompeten dan berkarakter.
+            </p>
+
+        </div>
+
+
+
+        <!-- MISI -->
+
+        <div class="mission-grid">
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    01
+                </div>
+
+                <h3>
+                    Meningkatkan Keterampilan
+                </h3>
+
+                <p>
+                    Meningkatkan keterampilan
+                    komputer dan jaringan.
+                </p>
+
+            </article>
+
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    02
+                </div>
+
+                <h3>
+                    Kreativitas &amp; Inovasi
+                </h3>
+
+                <p>
+                    Mengembangkan kreativitas
+                    dan inovasi siswa.
+                </p>
+
+            </article>
+
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    03
+                </div>
+
+                <h3>
+                    Disiplin &amp; Tanggung Jawab
+                </h3>
+
+                <p>
+                    Membiasakan sikap disiplin
+                    dan bertanggung jawab.
+                </p>
+
+            </article>
+
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    04
+                </div>
+
+                <h3>
+                    Teknologi Terbaru
+                </h3>
+
+                <p>
+                    Mengikuti perkembangan
+                    teknologi terbaru.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     KELAS TKJ
+================================= -->
+
+<section
+    class="class-section"
+    id="kelas"
+>
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <div class="tag">
+                Data Kelas
+            </div>
+
+            <h2>
+                Kelas Jurusan TKJ
+            </h2>
+
+            <p>
+                Empat kelas TKJ dengan
+                total 116 siswa.
+            </p>
+
+        </div>
+
+
+
+        <div class="class-grid">
+
+
+            <article class="class-card">
+
+                <small>
+                    Kelas X
+                </small>
+
+                <h3>
+                    10 TKJ 1
+                </h3>
+
+                <div class="students">
+                    👥
+
+                    <strong>
+                        29
+                    </strong>
+
+                    siswa
+                </div>
+
+            </article>
+
+
+
+            <article class="class-card">
+
+                <small>
+                    Kelas X
+                </small>
+
+                <h3>
+                    10 TKJ 2
+                </h3>
+
+                <div class="students">
+                    👥
+
+                    <strong>
+                        30
+                    </strong>
+
+                    siswa
+                </div>
+
+            </article>
+
+
+
+            <article class="class-card">
+
+                <small>
+                    Kelas XI
+                </small>
+
+                <h3>
+                    11 TKJ 1
+                </h3>
+
+                <div class="students">
+                    👥
+
+                    <strong>
+                        29
+                    </strong>
+
+                    siswa
+                </div>
+
+            </article>
+
+
+
+            <article class="class-card">
+
+                <small>
+                    Kelas XI
+                </small>
+
+                <h3>
+                    11 TKJ 2
+                </h3>
+
+                <div class="students">
+                    👥
+
+                    <strong>
+                        28
+                    </strong>
+
+                    siswa
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="total-students">
+
+            👨‍🎓 Total Siswa TKJ:
+            <strong>116 siswa</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     KEAHLIAN
+================================= -->
+
+<section id="keahlian">
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <div class="tag">
+                Kompetensi
+            </div>
+
+            <h2>
+                Yang Dipelajari di TKJ
+            </h2>
+
+            <p>
+                Keterampilan yang mendukung
+                siswa menghadapi dunia teknologi
+                dan industri.
+            </p>
+
+        </div>
+
+
+
+        <div class="skills-grid">
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Hardware
+                </h3>
+
+                <p>
+                    Merakit, mengenal komponen,
+                    dan melakukan perawatan
+                    perangkat komputer.
+                </p>
+
+            </article>
+
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Jaringan
+                </h3>
+
+                <p>
+                    LAN, konfigurasi jaringan,
+                    konektivitas, internet,
+                    dan perangkat jaringan.
+                </p>
+
+            </article>
+
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Sistem Operasi
+                </h3>
+
+                <p>
+                    Instalasi, konfigurasi,
+                    dan pengelolaan sistem operasi
+                    serta software.
+                </p>
+
+            </article>
+
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    Troubleshooting
+                </h3>
+
+                <p>
+                    Menganalisis dan menyelesaikan
+                    masalah hardware, software,
+                    dan jaringan.
+                </p>
+
+            </article>
+
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Keamanan Jaringan
+                </h3>
+
+                <p>
+                    Mengenal dasar keamanan
+                    sistem dan jaringan untuk
+                    penggunaan yang aman.
+                </p>
+
+            </article>
+
+
+
+            <article class="skill">
+
+                <div class="skill-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Web &amp; Teknologi
+                </h3>
+
+                <p>
+                    Mengembangkan kreativitas
+                    digital melalui web dasar
+                    dan proyek teknologi.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     GALERI
+================================= -->
+
+<section
+    class="gallery-section"
+    id="galeri"
+>
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <div class="tag">
+                Dokumentasi
+            </div>
+
+            <h2>
+                Galeri SMKN 2 Tembilahan
+            </h2>
+
+            <p>
+                Dokumentasi sekolah dan
+                kegiatan jurusan TKJ.
+            </p>
+
+        </div>
+
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/sekolah-aerial.jpg"
+                    alt="SMKN 2 Tembilahan"
+                    loading="lazy"
+                >
+
+                <div class="gallery-caption">
+                    SMKN 2 Tembilahan
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/tkj-kegiatan.jpg"
+                    alt="Kegiatan TKJ"
+                    loading="lazy"
+                >
+
+                <div class="gallery-caption">
+                    Kegiatan TKJ
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/poster-smkn2.jpg"
+                    alt="Poster SMKN 2 Tembilahan"
+                    loading="lazy"
+                >
+
+                <div class="gallery-caption">
+                    Engineering School
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/logo-smkn2.png"
+                    alt="Logo SMKN 2 Tembilahan"
+                    loading="lazy"
+                >
+
+                <div class="gallery-caption">
+                    Logo Sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="images/tkj-kegiatan.jpg"
+                    alt="Siswa TKJ"
+                    loading="lazy"
+                >
+
+                <div class="gallery-caption">
+                    Siswa TKJ
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     KONTAK
+================================= -->
+
+<section
+    class="contact"
+    id="kontak"
+>
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>
+                Terhubung dengan
+                SMKN 2 Tembilahan
+            </h2>
+
+            <p>
+                Untuk informasi dan komunikasi,
+                silakan gunakan WhatsApp
+                atau Instagram.
+            </p>
+
+
+            <div class="socials">
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    class="social"
+                    href="https://wa.me/6282287979034"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💬 WhatsApp
+                </a>
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    class="social"
+                    href="https://instagram.com/official.smkn2tembilahan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    📷 Instagram
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =================================
+     FOOTER
+================================= -->
+
+<footer>
+
+    <div class="container">
 
         <p>
-            © 2026 TKJ — Teknik Komputer dan Jaringan
+            <strong>
+                SMKN 2 Tembilahan
+            </strong>
+
+            — Teknik Komputer &amp; Jaringan
         </p>
 
-    </footer>
+        <p>
+            © 2026 TKJ. Website Jurusan.
+        </p>
+
+    </div>
+
+</footer>
 
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
+<!-- =================================
+     JAVASCRIPT
+================================= -->
 
-    <script>
+<script>
 
-        const menuBtn =
-            document.getElementById("menuBtn");
+    const menuBtn =
+        document.getElementById("menuBtn");
 
-        const navMenu =
-            document.getElementById("navMenu");
+    const navMenu =
+        document.getElementById("navMenu");
 
 
-        menuBtn.addEventListener("click", function () {
+    /* BUKA / TUTUP MENU HP */
+
+    menuBtn.addEventListener(
+        "click",
+        function () {
 
             navMenu.classList.toggle("active");
 
-        });
+            if (
+                navMenu.classList.contains("active")
+            ) {
+
+                menuBtn.textContent = "✕";
+
+            } else {
+
+                menuBtn.textContent = "☰";
+
+            }
+
+        }
+    );
 
 
-        // Menutup menu setelah link diklik
+    /* TUTUP MENU SETELAH MEMILIH MENU */
 
-        document
-            .querySelectorAll(".nav-menu a")
-            .forEach(function (link) {
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function (link) {
 
-                link.addEventListener("click", function () {
+            link.addEventListener(
+                "click",
+                function () {
 
                     navMenu.classList.remove("active");
 
-                });
+                    menuBtn.textContent = "☰";
 
-            });
+                }
+            );
 
-    </script>
+        });
+
+</script>
 
 
 </body>
-</html
+</html>
