@@ -6,6 +6,24 @@
     <meta name="description" content="Website Jurusan Teknik Komputer dan Jaringan SMKN 2 Tembilahan">
     <title>TKJ | SMKN 2 Tembilahan</title>
 
+    <!-- 
+      ========================================================================
+      PEMETAAN GAMBAR (IMAGE MAPPING DOCUMENTATION)
+      ========================================================================
+      1. Logo Sekolah:
+         - File  : 7364767284086046725~tplv-tiktokx-cropcenter_1080_1080.jpeg
+         - Tempat: Navbar Header & Kartu Logo Galeri
+
+      2. Poster Utama / Banner Sekolah:
+         - File  : WhatsApp Image 2026-09-07 at 15.07.31_2.jpg
+         - Tempat: Background Hero Section & Grid Galeri (Item 1 & 5)
+
+      3. Foto Kegiatan & Jaringan TKJ:
+         - File  : WhatsApp Image 2026-09-07 at 15.07.31.jpg
+         - Tempat: Gambar Seksi 'Tentang Kami' & Grid Galeri (Item 2 & 4)
+      ========================================================================
+    -->
+
     <style>
         /* ==============================
            RESET & VARIABLES
@@ -160,7 +178,7 @@
                     rgba(3,59,40,0.75),
                     rgba(3,59,40,0.40)
                 ),
-                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80")
+                url("WhatsApp Image 2026-09-07 at 15.07.31_2.jpg")
                 center / cover no-repeat;
             transform: scale(1.02);
         }
@@ -303,8 +321,9 @@
 
         .about-image img {
             width: 100%;
-            height: 460px;
+            height: 480px;
             object-fit: cover;
+            object-position: center;
         }
 
         .about-copy h3 {
@@ -529,7 +548,7 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr 0.75fr;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
             grid-template-rows: 240px 240px;
             gap: 16px;
         }
@@ -550,6 +569,12 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+        }
+
+        .gallery-item.contain-img img {
+            object-fit: contain;
+            background: #033b28;
+            padding: 10px;
         }
 
         .gallery-item:hover img {
@@ -699,7 +724,8 @@
     <header>
         <nav class="container">
             <a href="#home" class="brand">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=100&q=80" alt="Logo SMKN 2 Tembilahan">
+                <!-- PEMETAAN: Logo Sekolah -->
+                <img src="7364767284086046725~tplv-tiktokx-cropcenter_1080_1080.jpeg" alt="Logo SMKN 2 Tembilahan">
                 <div class="brand-text">
                     <strong>SMKN 2 TEMBILAHAN</strong>
                     <span>Teknik Komputer &amp; Jaringan</span>
@@ -721,7 +747,7 @@
     </header>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO (PEMETAAN: Poster Utama di Background via CSS) -->
         <section class="hero" id="home">
             <div class="hero-bg"></div>
             <div class="container">
@@ -748,7 +774,8 @@
 
                 <div class="about-grid">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="Kegiatan Siswa TKJ" loading="lazy">
+                        <!-- PEMETAAN: Foto Kegiatan TKJ -->
+                        <img src="WhatsApp Image 2026-09-07 at 15.07.31.jpg" alt="Kegiatan Siswa TKJ" loading="lazy">
                     </div>
 
                     <div class="about-copy">
@@ -887,7 +914,7 @@
             </div>
         </section>
 
-        <!-- GALERI -->
+        <!-- GALERI (PEMETAAN KETIGA GAMBAR) -->
         <section class="gallery-section" id="galeri">
             <div class="container">
                 <div class="section-head">
@@ -897,25 +924,30 @@
                 </div>
 
                 <div class="gallery">
+                    <!-- PEMETAAN 1: Poster Sekolah Utama -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80" alt="Gedung SMKN 2 Tembilahan" loading="lazy">
-                        <div class="gallery-caption">SMKN 2 Tembilahan</div>
+                        <img src="WhatsApp Image 2026-09-07 at 15.07.31_2.jpg" alt="SMKN 2 Tembilahan Poster" loading="lazy">
+                        <div class="gallery-caption">Poster SMKN 2 Tembilahan</div>
                     </div>
+                    <!-- PEMETAAN 2: Foto Kegiatan TKJ -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Praktik Perangkat Jaringan" loading="lazy">
-                        <div class="gallery-caption">Praktik Jaringan</div>
+                        <img src="WhatsApp Image 2026-09-07 at 15.07.31.jpg" alt="Kegiatan Pembelajaran TKJ" loading="lazy">
+                        <div class="gallery-caption">Kegiatan TKJ &amp; Jaringan</div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Pemrograman & Web" loading="lazy">
-                        <div class="gallery-caption">Lab Komputer</div>
+                    <!-- PEMETAAN 3: Logo Resmi Sekolah -->
+                    <div class="gallery-item contain-img">
+                        <img src="7364767284086046725~tplv-tiktokx-cropcenter_1080_1080.jpeg" alt="Logo SMKN 2 Tembilahan" loading="lazy">
+                        <div class="gallery-caption">Logo Resmi Sekolah</div>
                     </div>
+                    <!-- PEMETAAN 4: Foto Praktik Jaringan -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Server & Router" loading="lazy">
-                        <div class="gallery-caption">Perangkat Server</div>
+                        <img src="WhatsApp Image 2026-09-07 at 15.07.31.jpg" alt="Praktik Lapangan Siswa" loading="lazy">
+                        <div class="gallery-caption">Praktik Lapangan</div>
                     </div>
+                    <!-- PEMETAAN 5: Flyer Engineering School -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Diskusi Kelompok" loading="lazy">
-                        <div class="gallery-caption">Siswa TKJ</div>
+                        <img src="WhatsApp Image 2026-09-07 at 15.07.31_2.jpg" alt="Engineering School" loading="lazy">
+                        <div class="gallery-caption">Engineering School</div>
                     </div>
                 </div>
             </div>
